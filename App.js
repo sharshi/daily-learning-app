@@ -7,7 +7,6 @@ import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   FlatList,
   View,
   Text,
@@ -28,15 +27,10 @@ const App: () => React$Node = () => {
   useEffect(() => {
     parshios()
       .then(res => res.json())
-      .then(json => {
-        console.log(json)
-        return setData(json)
-      })
+      .then(json => setData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   },[]);
-
-  // if (!data) return null;
 
   return (
     <>
@@ -46,7 +40,7 @@ const App: () => React$Node = () => {
           {isLoading ? <ActivityIndicator /> : (
             <FlatList
               data={data}
-              keyExtractor={({ item }, index) => item}
+              keyExtractor={({ description }, index) => description}
               renderItem={({ item }) => (
                 <View style={styles.item}>
                   <Text style={styles.left}>{item.title_he}</Text>
