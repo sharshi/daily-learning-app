@@ -9,7 +9,6 @@ import {
   StyleSheet,
   FlatList,
   View,
-  Text,
   StatusBar,
   ActivityIndicator,
 } from 'react-native';
@@ -19,8 +18,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import { parshios } from "./frontend/util/torah_util";
+import MenuListCell from "./frontend/components/menu_list_cell";
 
-const App: () => React$Node = () => {
+const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -41,12 +41,7 @@ const App: () => React$Node = () => {
             <FlatList
               data={data}
               keyExtractor={({ description }, index) => description}
-              renderItem={({ item }) => (
-                <View style={styles.item}>
-                  <Text style={styles.left}>{item.title_he}</Text>
-                  <Text>{item.description}</Text>
-                </View>
-              )}
+              renderItem={({ item }) => <MenuListCell item={ item } />}
             />
           )}
         </View>
@@ -59,17 +54,8 @@ const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
   },
-  item: {
-    backgroundColor: '#F2E9CE',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
   title: {
     fontSize: 32,
-  },
-  left: {
-    textAlign: 'left',
   }
 });
 
