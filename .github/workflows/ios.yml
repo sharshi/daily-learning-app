@@ -12,7 +12,10 @@ jobs:
       run: sudo xcode-select -switch /Applications/Xcode_11.4.app
     - name: Xcode version
       run: /usr/bin/xcodebuild -version
-    - name: Xcode build iOS App
+    - name: Install pod dependencies
       run: |
         cd ios/
+        pod install
+    - name: Xcode build iOS App
+      run: |
         xcodebuild clean build -scheme DailyLearningApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4'
