@@ -1,0 +1,28 @@
+name: Xcode build
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install npm dependencies
+      run: |
+        npm install
+    - name: Install pod dependencies
+      run: |
+        cd ios/
+        pod install
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_11.4.1.app
+    - name: Xcode version
+      run: /usr/bin/xcodebuild -version
+    - name: Xcode build iOS App
+      run: |
+        cd ios/
+        xcodebuild clean build -workspace DailyLearningApp.xcworkspace -scheme DailyLearningApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4.1'
