@@ -1,4 +1,4 @@
-name: Xcode build
+name: Xcode-build
 
 on: [push, pull_request]
 
