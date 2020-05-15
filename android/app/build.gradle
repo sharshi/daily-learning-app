@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.dailylearningapp"
+        applicationId "org.shafeh.dailylearningapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

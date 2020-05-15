@@ -1,4 +1,4 @@
-package com.dailylearningapp;
+package org.shafeh.dailylearningapp;
 
 import com.facebook.react.ReactActivity;
 
