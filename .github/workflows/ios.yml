@@ -22,4 +22,4 @@ jobs:
     - name: Xcode build iOS App
       run: |
         cd ios/
-        xcodebuild clean build -scheme DailyLearningApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4.1'
+        xcodebuild clean build -project DailyLearningApp.xcworkspace -scheme DailyLearningApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.4.1'
