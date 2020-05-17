@@ -11,14 +11,12 @@ import {
   View,
   StatusBar,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import { Header, ListItem } from 'react-native-elements';
 
 import { parshios } from "./frontend/util/torah_util";
-import MenuListCell from "./frontend/components/menu_list_cell";
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -35,28 +33,39 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <View>
-          {isLoading ? <ActivityIndicator /> : (
-            <FlatList
-              data={data}
-              keyExtractor={({ description }, index) => description}
-              renderItem={({ item }) => <MenuListCell item={ item } />}
-            />
-          )}
-        </View>
+        <Header
+          statusBarProps={{ barStyle: 'light-content', translucent: true }}
+          leftComponent={{ icon: 'settings', color: '#fff' }}
+          centerComponent={{ 
+            text: 'Daily Learning', 
+            style: { color: '#fff' } 
+          }}
+          />
+        <SafeAreaView>
+          <ScrollView>
+          <View>
+            {isLoading ? <ActivityIndicator /> : (
+              data.map((l, i) => (
+                <ListItem
+                  key={i}
+                  title={l.title_he}
+                  subtitle={l.description}
+                  bottomDivider
+                />
+              ))
+            )}
+          </View>
+          <View style={styles.bottomSpacing} />
+        </ScrollView>
       </SafeAreaView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  bottomSpacing: {
+    height: 70
   },
-  title: {
-    fontSize: 32,
-  }
 });
 
 export default App;
