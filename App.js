@@ -17,6 +17,7 @@ import {
 import { Header, ListItem } from 'react-native-elements';
 
 import { parshios } from "./frontend/util/torah_util";
+import Hi from "./frontend/util/calendar";
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -29,6 +30,8 @@ const App = () => {
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   },[]);
+
+  Hi();
 
   return (
     <>
