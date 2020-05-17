@@ -22,9 +22,7 @@ const MenuListCell = ( { item } ) => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: '#F2E9CE',
     padding: 20,
-    marginVertical: 8,
     marginHorizontal: 16,
   },
   left: {
