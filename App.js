@@ -14,7 +14,8 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { Header, ListItem } from 'react-native-elements';
+import MenuListCell from "./frontend/components/menu_list_cell";
+import Separator from "./frontend/components/pieces/separator";
 
 import { parshios } from "./frontend/util/torah_util";
 import Hi from "./frontend/util/calendar";
@@ -31,42 +32,31 @@ const App = () => {
       .finally(() => setLoading(false));
   },[]);
 
-  Hi();
+  Hi(new Date("04/25/2020"));
 
   return (
     <>
       <StatusBar barStyle="dark-content" />
-        <Header
-          statusBarProps={{ barStyle: 'light-content', translucent: true }}
-          leftComponent={{ icon: 'settings', color: '#fff' }}
-          centerComponent={{ 
-            text: 'Daily Learning', 
-            style: { color: '#fff' } 
-          }}
-          />
         <SafeAreaView>
-          <ScrollView>
           <View>
             {isLoading ? <ActivityIndicator /> : (
-              data.map((l, i) => (
-                <ListItem
-                  key={i}
-                  title={l.title_he}
-                  subtitle={l.description}
-                  bottomDivider
-                />
-              ))
+              
+              <FlatList
+                data={data}
+                renderItem={({ item }) => <MenuListCell item={item} />}
+                keyExtractor={item => item.description}
+                ItemSeparatorComponent={() => <Separator />}
+              />
+
             )}
           </View>
-          <View style={styles.bottomSpacing} />
-        </ScrollView>
       </SafeAreaView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  bottomSpacing: {
+  component: {
     height: 70
   },
 });
