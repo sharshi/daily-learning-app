@@ -37,20 +37,23 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <View>
-            {isLoading ? <ActivityIndicator /> : (
-              
-              <FlatList
-                data={data}
-                renderItem={({ item }) => <MenuListCell item={item} />}
-                keyExtractor={item => item.description}
-                ItemSeparatorComponent={() => <Separator />}
-              />
+      {/* <Header /> */}
+      {/* <ScrollView> */}
+      <SafeAreaView>
+      <View>
+        {isLoading ? <ActivityIndicator /> : (
+          
+          <FlatList
+            data={data}
+            renderItem={({ item }) => <MenuListCell item={item} />}
+            keyExtractor={item => item.description}
+            ItemSeparatorComponent={() => <Separator />}
+          />
 
-            )}
-          </View>
+        )}
+      </View>
       </SafeAreaView>
+      {/* </ScrollView> */}
     </>
   );
 };
