@@ -1,15 +1,19 @@
-# daily-learning-app
+# Daily Learning App
+
+![Android build](https://github.com/sharshi/daily-learning-app/workflows/Android%20build/badge.svg?branch=master)
+![Xcode build](https://github.com/sharshi/daily-learning-app/workflows/Xcode%20build/badge.svg)
+
 React Native Frontend for the Daily Learning API
 
 `npx react-native init AwesomeProject`
 
 to edit android bundle id: https://stackoverflow.com/a/53428199/2140793
 
-`yarn add @react-navigation/native`
-`yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view`
-`npx pod-install ios`
+ 1. `yarn add @react-navigation/native`
+ 2. `yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view`
+ 3. `npx pod-install ios`
+ 4. top of entry point : `import 'react-native-gesture-handler';`
 
-top of entry point : `import 'react-native-gesture-handler';`
 ```
 import 'react-native-gesture-handler';
 import * as React from 'react';
@@ -21,11 +25,8 @@ export default function App() {
   );
 }
 ```
-continue setup here: https://reactnavigation.org/docs/getting-started
+ 5. continue setup here: https://reactnavigation.org/docs/getting-started
 
-![Android build](https://github.com/sharshi/daily-learning-app/workflows/Android%20build/badge.svg?branch=master)
-![Xcode build](https://github.com/sharshi/daily-learning-app/workflows/Xcode%20build/badge.svg)
-
-
-react-native run-android --variant=release
-Then APK can be found in android/app/build/outputs/apk/release
+## Release: 
+ 1. react-native run-android --variant=release
+ 2. Then APK can be found in android/app/build/outputs/apk/release
