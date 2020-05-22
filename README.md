@@ -3,6 +3,8 @@
 ![Android build](https://github.com/sharshi/daily-learning-app/workflows/Android%20build/badge.svg?branch=master)
 ![Xcode build](https://github.com/sharshi/daily-learning-app/workflows/Xcode%20build/badge.svg)
 
+https://reactnative.dev/docs/environment-setup
+
 React Native Frontend for the Daily Learning API
 
 `npx react-native init AwesomeProject`
