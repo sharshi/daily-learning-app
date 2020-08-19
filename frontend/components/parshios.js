@@ -10,13 +10,14 @@ import {
   FlatList,
   View,
   StatusBar,
-  ActivityIndicator
+  ActivityIndicator,
+  Text
 } from 'react-native';
 
 import MenuListCell from "./menu_list_cell";
 import Separator from "./pieces/separator";
 
-import { parshios } from "../util/torah_util";
+import { sections, parshios } from "../util/torah_util";
 
 const Parshios = () => {
   const [isLoading, setLoading] = useState(true);

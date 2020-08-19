@@ -15,7 +15,7 @@ export default function Main() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Daily Learning" component={App} />
+        <Stack.Screen name="Daily Learning" component={ App } />
       </Stack.Navigator>
     </NavigationContainer>
   );
