@@ -19,7 +19,7 @@ import Separator from "./pieces/separator";
 
 import { sections, parshios } from "../util/torah_util";
 
-const Parshios = () => {
+const Parshios = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
@@ -40,7 +40,7 @@ const Parshios = () => {
 
             <FlatList
               data={data}
-              renderItem={({ item }) => <MenuListCell item={item} />}
+              renderItem={({ item }) => <MenuListCell navigation={navigation} item={item} />}
               keyExtractor={item => item.description}
               ItemSeparatorComponent={() => <Separator />}
             />

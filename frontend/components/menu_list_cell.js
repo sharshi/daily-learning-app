@@ -10,10 +10,12 @@ import {
   Text,
 } from 'react-native';
 
-const MenuListCell = ( { item } ) => {
+const MenuListCell = ( { item, navigation } ) => {
 
   return (
-    <View style={styles.item}>
+    <View onTouchEnd={() => navigation.navigate('Details', {
+      item
+    })} style={styles.item}>
       <Text style={styles.left}>{item.title_he}</Text>
       <Text>{item.description}</Text>
     </View>

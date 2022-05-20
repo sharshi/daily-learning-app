@@ -7,11 +7,11 @@ import React from 'react';
 
 import Parshios from './frontend/components/parshios';
 
-const App = () => {
+const App = ({ navigation }) => {
 
   return (
     <>
-      <Parshios />
+      <Parshios navigation={navigation}/>
     </>
   );
 };
